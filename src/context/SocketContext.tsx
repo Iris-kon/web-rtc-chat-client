@@ -37,7 +37,8 @@ interface ICall {
 
 const SocketContext = createContext({} as SocketContextData)
 
-const socket = io("http://localhost:5000/")
+const socket = io("https://web-rtc-video-be.onrender.com/")
+//Use on Localhost const socket = io("http://localhost:5000/")
 
 function SocketProvider({ children }: SocketContextProviderProps) {
   const [stream, setStream] = useState<MediaStream>()
