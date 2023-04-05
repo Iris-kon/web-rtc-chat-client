@@ -32,7 +32,7 @@ export function VideoPlayer() {
     useContext(SocketContext)
   const classes = useStyles()
 
-  console.log(myVideo)
+  console.log(myVideo.current)
 
   return (
     <Grid container className={classes.gridContainer}>
