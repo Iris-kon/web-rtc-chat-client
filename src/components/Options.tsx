@@ -43,7 +43,13 @@ const useStyles = makeStyles((theme) => ({
   },
   paper: {
     padding: "10px 20px",
-    border: "2px solid black",
+    border: "0",
+    borderRadius: 15,
+    background: "rgba(239, 243, 246, 0)",
+    color: "rgba(239, 243, 246, 1)",
+  },
+  input: {
+    color: "rgba(239, 243, 246, 1)",
   },
 }))
 
@@ -63,6 +69,7 @@ export function Options({ children }: OptionsProps) {
                 Account Info
               </Typography>
               <TextField
+                InputLabelProps={{ className: classes.input }}
                 fullWidth
                 label="Name"
                 value={name}
@@ -86,8 +93,9 @@ export function Options({ children }: OptionsProps) {
                 Make a call
               </Typography>
               <TextField
+                InputLabelProps={{ className: classes.input }}
                 fullWidth
-                label="iD To call"
+                label="ID To call"
                 value={idToCall}
                 onChange={(e) => setIdToCall(e.target.value)}
               />
