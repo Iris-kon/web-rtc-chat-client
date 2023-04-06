@@ -32,25 +32,6 @@ export function VideoPlayer() {
     useContext(SocketContext)
   const classes = useStyles()
 
-  const videoRef = useRef(null)
-
-  useEffect(() => {
-    getVideo()
-  }, [videoRef])
-
-  const getVideo = () => {
-    navigator.mediaDevices
-      .getUserMedia({ video: true })
-      .then((stream) => {
-        let video = videoRef.current
-        video.srcObject = stream
-        video.play()
-      })
-      .catch((err) => {
-        console.error("error:", err)
-      })
-  }
-
   return (
     <Grid container className={classes.gridContainer}>
       {/**Our own Video */}
