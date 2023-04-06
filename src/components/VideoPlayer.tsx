@@ -40,7 +40,7 @@ export function VideoPlayer() {
       .then((currentStream) => {
         myVideoA.current.srcObject = currentStream
       })
-  }, [myVideo])
+  }, [])
 
   return (
     <Grid container className={classes.gridContainer}>
