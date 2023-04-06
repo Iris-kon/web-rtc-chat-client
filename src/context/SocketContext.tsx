@@ -59,6 +59,8 @@ function SocketProvider({ children }: SocketContextProviderProps) {
         setStream(currentStream)
 
         myVideo.current.srcObject = currentStream
+
+        console.log(myVideo.current.srcObject)
       })
 
     socket.on("me", (id) => setMe(id))
