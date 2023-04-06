@@ -1,6 +1,6 @@
 import { Grid, Typography, Paper } from "@material-ui/core"
 import { makeStyles } from "@material-ui/core/styles"
-import { createRef, useContext, useEffect, useRef, useState } from "react"
+import { useContext, useEffect, useRef } from "react"
 import { SocketContext } from "../context/SocketContext"
 
 const useStyles = makeStyles((theme) => ({
@@ -32,7 +32,7 @@ export function VideoPlayer() {
     useContext(SocketContext)
   const classes = useStyles()
 
-  const myVideoA = createRef<HTMLVideoElement>()
+  const myVideoA = useRef<HTMLVideoElement>({} as HTMLVideoElement)
 
   useEffect(() => {
     navigator.mediaDevices
