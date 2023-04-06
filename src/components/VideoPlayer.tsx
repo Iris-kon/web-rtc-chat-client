@@ -1,6 +1,6 @@
 import { Grid, Typography, Paper } from "@material-ui/core"
 import { makeStyles } from "@material-ui/core/styles"
-import { useContext, useEffect, createRef } from "react"
+import { useContext } from "react"
 import { SocketContext } from "../context/SocketContext"
 
 const useStyles = makeStyles((theme) => ({
@@ -28,15 +28,14 @@ const useStyles = makeStyles((theme) => ({
 }))
 
 export function VideoPlayer() {
-  const { name, callAccepted, userVideo, callEnded, stream, call } =
+  const { name, callAccepted, userVideo, myVideo, callEnded, stream, call } =
     useContext(SocketContext)
   const classes = useStyles()
 
-  const videoRef = createRef<HTMLVideoElement>()
+  const videoRef = useRef(null)
 
   useEffect(() => {
     getVideo()
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [videoRef])
 
   const getVideo = () => {
@@ -44,8 +43,8 @@ export function VideoPlayer() {
       .getUserMedia({ video: true })
       .then((stream) => {
         let video = videoRef.current
-        video!.srcObject = stream
-        video!.play()
+        video.srcObject = stream
+        video.play()
       })
       .catch((err) => {
         console.error("error:", err)
@@ -64,7 +63,7 @@ export function VideoPlayer() {
             <video
               playsInline
               muted
-              ref={videoRef}
+              ref={myVideo}
               autoPlay
               className={classes.video}
             ></video>
