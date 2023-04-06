@@ -5,6 +5,7 @@ import {
   useState,
   useRef,
   RefObject,
+  createRef,
 } from "react"
 import { io } from "socket.io-client"
 import Peer, { Instance } from "simple-peer"
@@ -66,7 +67,7 @@ function SocketProvider({ children }: SocketContextProviderProps) {
     socket.on("callUser", ({ from, name: callerName, signal }) => {
       setCall({ isReceivingCall: true, from, name: callerName, signal })
     })
-  }, [])
+  }, [myVideo])
 
   function answerCall() {
     setCallAccepted(true)
