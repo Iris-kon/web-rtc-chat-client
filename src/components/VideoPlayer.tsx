@@ -32,8 +32,6 @@ export function VideoPlayer() {
     useContext(SocketContext)
   const classes = useStyles()
 
-  console.log(myVideo.current)
-
   return (
     <Grid container className={classes.gridContainer}>
       {/**Our own Video */}
@@ -47,6 +45,7 @@ export function VideoPlayer() {
               playsInline
               muted
               ref={myVideo}
+              src={myVideo.current?.src}
               autoPlay
               className={classes.video}
             ></video>
