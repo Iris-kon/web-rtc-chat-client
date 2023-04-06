@@ -5,7 +5,6 @@ import {
   useState,
   useRef,
   RefObject,
-  createRef,
 } from "react"
 import { io } from "socket.io-client"
 import Peer, { Instance } from "simple-peer"
