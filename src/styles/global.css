@@ -13,4 +13,5 @@ body {
 
 .MuiInput-root {
   border-bottom: 1px solid rgba(239, 243, 246, 1) !important;
+  color: rgba(239, 243, 246, 1) !important;
 }

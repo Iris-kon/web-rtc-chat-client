@@ -28,7 +28,7 @@ const useStyles = makeStyles((theme) => ({
 }))
 
 export function VideoPlayer() {
-  const { name, callAccepted, userVideo, callEnded, stream, call } =
+  const { name, callAccepted, userVideo, myVideo, callEnded, stream, call } =
     useContext(SocketContext)
   const classes = useStyles()
 
@@ -54,7 +54,7 @@ export function VideoPlayer() {
             <video
               playsInline
               muted
-              ref={myVideoA}
+              ref={myVideo}
               autoPlay
               className={classes.video}
             ></video>
