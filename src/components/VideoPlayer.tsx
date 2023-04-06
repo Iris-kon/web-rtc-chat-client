@@ -1,6 +1,6 @@
 import { Grid, Typography, Paper } from "@material-ui/core"
 import { makeStyles } from "@material-ui/core/styles"
-import { useContext, useRef } from "react"
+import { useContext, useEffect, useRef } from "react"
 import { SocketContext } from "../context/SocketContext"
 
 const useStyles = makeStyles((theme) => ({
@@ -28,17 +28,19 @@ const useStyles = makeStyles((theme) => ({
 }))
 
 export function VideoPlayer() {
-  const { name, callAccepted, userVideo, callEnded, stream, call } =
+  const { name, callAccepted, userVideo, myVideo, callEnded, stream, call } =
     useContext(SocketContext)
   const classes = useStyles()
 
-  const myVideo = useRef<HTMLVideoElement>({} as HTMLVideoElement)
+  const myVideoA = useRef<HTMLVideoElement>({} as HTMLVideoElement)
 
-  navigator.mediaDevices
-    .getUserMedia({ video: true, audio: true })
-    .then((currentStream) => {
-      myVideo.current.srcObject = currentStream
-    })
+  useEffect(() => {
+    navigator.mediaDevices
+      .getUserMedia({ video: true, audio: true })
+      .then((currentStream) => {
+        myVideoA.current.srcObject = currentStream
+      })
+  }, [myVideo])
 
   return (
     <Grid container className={classes.gridContainer}>
@@ -52,8 +54,7 @@ export function VideoPlayer() {
             <video
               playsInline
               muted
-              ref={myVideo}
-              src={myVideo.current?.src}
+              ref={myVideoA}
               autoPlay
               className={classes.video}
             ></video>
