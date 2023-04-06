@@ -1,6 +1,6 @@
 import { Grid, Typography, Paper } from "@material-ui/core"
 import { makeStyles } from "@material-ui/core/styles"
-import { useContext, useEffect, useRef } from "react"
+import { useContext, useEffect, createRef } from "react"
 import { SocketContext } from "../context/SocketContext"
 
 const useStyles = makeStyles((theme) => ({
@@ -32,10 +32,11 @@ export function VideoPlayer() {
     useContext(SocketContext)
   const classes = useStyles()
 
-  const videoRef = useRef({} as HTMLVideoElement)
+  const videoRef = createRef<HTMLVideoElement>()
 
   useEffect(() => {
     getVideo()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [videoRef])
 
   const getVideo = () => {
