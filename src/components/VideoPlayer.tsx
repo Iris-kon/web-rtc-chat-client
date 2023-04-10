@@ -2,10 +2,12 @@ import { Grid, Typography, Paper } from "@material-ui/core"
 import { makeStyles } from "@material-ui/core/styles"
 import { useContext } from "react"
 import { SocketContext } from "../context/SocketContext"
+import Webcam from "react-webcam"
 
 const useStyles = makeStyles((theme) => ({
   video: {
     width: "550px",
+    height: "100%",
     borderRadius: 15,
     [theme.breakpoints.down("xs")]: {
       width: "300px",
@@ -24,14 +26,20 @@ const useStyles = makeStyles((theme) => ({
     margin: "10px",
     background: "rgba(239, 243, 246, 0)",
     color: "rgba(239, 243, 246, 1)",
+    heigth: "100%",
   },
 }))
 
 export function VideoPlayer() {
-  const { name, callAccepted, userVideo, myVideo, callEnded, stream, call } =
+  const { name, callAccepted, userVideo, callEnded, stream, call } =
     useContext(SocketContext)
   const classes = useStyles()
 
+  const videoConstraints = {
+    width: 1280,
+    height: 720,
+    facingMode: "user",
+  }
   return (
     <Grid container className={classes.gridContainer}>
       {/**Our own Video */}
@@ -41,13 +49,11 @@ export function VideoPlayer() {
             <Typography variant="h5" gutterBottom>
               {name || "Name"}
             </Typography>
-            <video
-              playsInline
-              muted
-              ref={myVideo}
-              autoPlay
+            <Webcam
               className={classes.video}
-            ></video>
+              audio={false}
+              videoConstraints={videoConstraints}
+            />
           </Grid>
         </Paper>
       ) : null}
