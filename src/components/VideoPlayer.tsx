@@ -38,6 +38,7 @@ export function VideoPlayer() {
   const videoConstraints = {
     width: 1280,
     height: 720,
+    facingMode: "user",
   }
   return (
     <Grid container className={classes.gridContainer}>
@@ -48,11 +49,7 @@ export function VideoPlayer() {
             <Typography variant="h5" gutterBottom>
               {name || "Name"}
             </Typography>
-            <Webcam
-              className={classes.video}
-              audio={false}
-              videoConstraints={videoConstraints}
-            />
+            <Webcam className={classes.video} audio={false} />
           </Grid>
         </Paper>
       ) : null}
