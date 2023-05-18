@@ -1,6 +1,6 @@
 # About
 
-A Study project made for traning the developement of a aplication With React for video chat.
+A Study project a video chat with react and webRTC.
 
 The application was developed with React applying the following concepts:
 <ul>
