@@ -14,7 +14,7 @@ The application was developed with React applying the following concepts:
 
 <b>Home:</b>
 
-![nologin](https://github.com/Thiago-kon/web-rtc-chat-client/blob/main/public/web-rtc-thumb.png?raw=true)
+![nologin](https://github.com/Iris-kon/web-rtc-chat-client/blob/main/public/web-rtc-thumb.png?raw=true)
 
 ## Used Technologies
 The project utilises the following technologies:
@@ -27,11 +27,11 @@ The project utilises the following technologies:
 </ul>
 
 ## Run project
-install and run  the backend:  `https://github.com/Thiago-kon/web-rtc-chat-server`
+install and run  the backend:  `https://github.com/Iris-kon/web-rtc-chat-server`
 
 Copy the project to the desired folder with the following command:
 
-### `git clone https://github.com/Thiago-kon/web-rtc-chat-client`
+### `git clone https://github.com/Iris-kon/web-rtc-chat-client`
 Install dependences with:
 
 ### `yarn install`
